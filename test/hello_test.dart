@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hellodahlia/hello.dart';
+import 'package:hellodahlia/hellodahlia.dart';
 
 void main() {
   test('adds one to input values', () {
