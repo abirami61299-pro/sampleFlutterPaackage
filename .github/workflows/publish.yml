@@ -1,0 +1,24 @@
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Flutter package
+        default: v1.0.0
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.10.1"
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Publish
+        uses: k-paxian/dart-package-publisher@v1.5.1
+        with:
+          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
+          flutter: true
+          skipTests: true
